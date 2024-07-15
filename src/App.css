@@ -1,0 +1,49 @@
+/* Global styles */
+* {
+  box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+  margin: 0; /* Removes default margin */
+  padding: 0; /* Removes default padding */
+  font-family: 'PT Sans', sans-serif; /* Sets the global font family */
+}
+
+/* Common styles for home, services, products, and sign-up sections */
+.home,
+.services,
+.products,
+.sign-up {
+  display: flex; /* Uses flexbox for layout */
+  height: 90vh; /* Sets height to 90% of the viewport height */
+  align-items: center; /* Centers items vertically */
+  justify-content: center; /* Centers items horizontally */
+  font-size: 3rem; /* Sets font size */
+}
+
+/* Specific styles for the services section */
+.services {
+  background-image: url('/photos/img-2.jpg'); /* Sets background image */
+  background-position: center; /* Centers the background image */
+  background-size: cover; /* Scales the background image to cover the entire section */
+  background-repeat: no-repeat; /* Prevents the background image from repeating */
+  color: #fff; /* Sets text color to white */
+  font-size: 100px; /* Sets font size */
+}
+
+/* Specific styles for the products section */
+.products {
+  background-image: url('/photos/img-1.jpg'); /* Sets background image */
+  background-position: center; /* Centers the background image */
+  background-size: fill; /* Scales the background image to fill the entire section */
+  background-repeat: no-repeat; /* Prevents the background image from repeating */
+  color: #fff; /* Sets text color to white */
+  font-size: 100px; /* Sets font size */
+}
+
+/* Specific styles for the sign-up section */
+.sign-up {
+  background-image: url('/photos/img-8.jpg'); /* Sets background image */
+  background-position: center; /* Centers the background image */
+  background-size: cover; /* Scales the background image to cover the entire section */
+  background-repeat: no-repeat; /* Prevents the background image from repeating */
+  color: #fff; /* Sets text color to white */
+  font-size: 100px; /* Sets font size */
+}

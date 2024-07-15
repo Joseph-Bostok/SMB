@@ -1,0 +1,80 @@
+/* Styling for the video element */
+video {
+  object-fit: cover; /* Ensures the video covers the entire container */
+  width: 100%; /* Sets the width to 100% of the parent element */
+  height: 100%; /* Sets the height to 100% of the parent element */
+  position: fixed; /* Fixes the video position on the screen */
+  z-index: -1; /* Places the video behind other content */
+}
+
+/* Styling for the hero container */
+.hero-container {
+  background: url('/photos/img-2.jpg') center center/cover no-repeat; /* Sets the background image with center alignment and cover */
+  height: 100vh; /* Sets the height to 100% of the viewport height */
+  width: 100%; /* Sets the width to 100% of the parent element */
+  display: flex; /* Uses flexbox for layout */
+  flex-direction: column; /* Aligns children in a column */
+  justify-content: center; /* Centers children vertically */
+  align-items: center; /* Centers children horizontally */
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2); /* Adds an inset shadow with black color at 20% opacity */
+  object-fit: contain; /* Ensures the content fits within the container */
+}
+
+/* Styling for h1 elements inside the hero container */
+.hero-container > h1 {
+  color: #ffffff; /* Sets the text color to white */
+  font-size: 100px; /* Sets the font size */
+  margin-top: -100px; /* Adds a negative top margin */
+}
+
+/* Styling for p elements inside the hero container */
+.hero-container > p {
+  margin-top: 8px; /* Adds a top margin */
+  color: #ffffff; /* Sets the text color to white */
+  font-size: 32px; /* Sets the font size */
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /* Sets the font family */
+}
+
+/* Styling for the hero buttons container */
+.hero-btns {
+  margin-top: 32px; /* Adds a top margin */
+}
+
+/* Styling for button elements inside the hero buttons container */
+.hero-btns .btn {
+  margin: 0.25in 0; /* Adds a margin of 1/4 inch vertically */
+}
+
+/* Styling for the font-awesome play circle icon */
+.fa-play-circle {
+  margin-left: 4px; /* Adds a left margin */
+}
+
+/* Media query for screen widths up to 960px */
+@media screen and (max-width: 960px) {
+  .hero-container > h1 {
+      font-size: 70px; /* Sets the font size */
+      margin-top: -150px; /* Adds a negative top margin */
+  }
+}
+
+/* Media query for screen widths up to 768px */
+@media screen and (max-width: 768px) {
+  .hero-container > h1 {
+      font-size: 50px; /* Sets the font size */
+      margin-top: -100px; /* Adds a negative top margin */
+  }
+
+  .hero-container > p {
+      font-size: 30px; /* Sets the font size */
+  }
+
+  .btn-mobile {
+      display: block; /* Displays the element as a block */
+      text-decoration: none; /* Removes text decoration */
+  }
+
+  .btn {
+      width: 100%; /* Sets the width to 100% of the parent element */
+  }
+}

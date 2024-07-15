@@ -1,0 +1,68 @@
+:root{
+    /* Defining a primary color variable */
+    --primary: #0070f3;
+}
+
+.btn{
+    /* Setting the background color using the primary color variable */
+    background-color: var(--primary);
+    /* Removing border */
+    border: 0;
+    /* Rounding the corners of the button */
+    border-radius: 5px;
+    /* Setting text color to white */
+    color: #fff;
+    /* Changing cursor to pointer on hover */
+    cursor: pointer;
+    /* Setting font size */
+    font-size: 16px;
+    /* Making font bold */
+    font-weight: bold;
+    /* Setting padding inside the button */
+    padding: 10px 15px;
+}
+
+.btn--primary{
+    /* Setting the background color using the primary color variable */
+    background-color: var(--primary);
+    /* Setting text color */
+    color: #242424;
+    /* Adding a border using the primary color variable */
+    border: 1px solid var(--primary);
+}
+
+.btn--outline{
+    /* Making background transparent */
+    background-color: transparent;
+    /* Setting text color to AliceBlue */
+    color: aliceblue;
+    /* Adding a border using the primary color variable */
+    border: 1px solid var(--primary);
+    /* Adding transition effect for all properties */
+    transition: all 0.3s ease-out;
+}
+
+.btn--medium{
+    /* Setting padding inside the button */
+    padding: 8px 20px;
+    /* Setting font size */
+    font-size: 20px;
+}
+
+.btn--large{
+    /* Setting padding inside the button */
+    padding: 12px 26px;
+    /* Setting font size */
+    font-size: 20px;
+}
+
+.btn--large:hover, .btn--medium:hover{
+    /* Adding transition effect for all properties */
+    transition: all 0.3s ease-out;
+    /* Changing background color to white on hover */
+    background: #fff;
+    /* Changing text color on hover */
+    color: #242424;
+    /* Adding transition effect for all properties again (redundant) */
+    transition: all 0.3s ease-out;
+}
