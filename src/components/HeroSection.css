@@ -1,80 +1,184 @@
-/* Styling for the video element */
-video {
-  object-fit: cover; /* Ensures the video covers the entire container */
-  width: 100%; /* Sets the width to 100% of the parent element */
-  height: 100%; /* Sets the height to 100% of the parent element */
-  position: fixed; /* Fixes the video position on the screen */
-  z-index: -1; /* Places the video behind other content */
+/* Reset some basic styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Inter', sans-serif; /* Using a modern sans-serif font */
+  background: linear-gradient(to right, #ff5f6d, #ffc371); /* Modern gradient background */
+  color: #ffffff; /* White text for contrast */
+  overflow-x: hidden;
+}
+
+/* Header styling */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+  padding: 1rem 2rem;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links:hover {
+  color: #ffc371;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
 }
 
 /* Styling for the hero container */
 .hero-container {
-  background: url('/photos/img-2.jpg') center center/cover no-repeat; /* Sets the background image with center alignment and cover */
-  height: 100vh; /* Sets the height to 100% of the viewport height */
-  width: 100%; /* Sets the width to 100% of the parent element */
-  display: flex; /* Uses flexbox for layout */
-  flex-direction: column; /* Aligns children in a column */
-  justify-content: center; /* Centers children vertically */
-  align-items: center; /* Centers children horizontally */
-  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2); /* Adds an inset shadow with black color at 20% opacity */
-  object-fit: contain; /* Ensures the content fits within the container */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  padding: 0 2rem;
 }
 
-/* Styling for h1 elements inside the hero container */
 .hero-container > h1 {
-  color: #ffffff; /* Sets the text color to white */
-  font-size: 100px; /* Sets the font size */
-  margin-top: -100px; /* Adds a negative top margin */
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: fadeIn 1.5s ease-out;
 }
 
-/* Styling for p elements inside the hero container */
 .hero-container > p {
-  margin-top: 8px; /* Adds a top margin */
-  color: #ffffff; /* Sets the text color to white */
-  font-size: 32px; /* Sets the font size */
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /* Sets the font family */
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  animation: fadeIn 1.5s ease-out 0.5s;
 }
 
-/* Styling for the hero buttons container */
 .hero-btns {
-  margin-top: 32px; /* Adds a top margin */
+  display: flex;
+  gap: 1rem;
+  animation: fadeIn 1.5s ease-out 1s;
 }
 
-/* Styling for button elements inside the hero buttons container */
-.hero-btns .btn {
-  margin: 0.25in 0; /* Adds a margin of 1/4 inch vertically */
+.btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  text-align: center;
 }
 
-/* Styling for the font-awesome play circle icon */
-.fa-play-circle {
-  margin-left: 4px; /* Adds a left margin */
+.btn.primary {
+  background-color: #ff5f6d;
+  color: white;
 }
 
-/* Media query for screen widths up to 960px */
+.btn.primary:hover {
+  background-color: #e04450;
+  transform: translateY(-3px);
+}
+
+.btn.secondary {
+  background-color: transparent;
+  border: 2px solid #ff5f6d;
+  color: #ff5f6d;
+}
+
+.btn.secondary:hover {
+  background-color: #ff5f6d;
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* Media query for responsive design */
 @media screen and (max-width: 960px) {
-  .hero-container > h1 {
-      font-size: 70px; /* Sets the font size */
-      margin-top: -150px; /* Adds a negative top margin */
+  .nav-menu {
+    display: none;
   }
-}
 
-/* Media query for screen widths up to 768px */
-@media screen and (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-menu.active {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 2rem;
+    gap: 1rem;
+  }
+
+  .nav-links {
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+  }
+
   .hero-container > h1 {
-      font-size: 50px; /* Sets the font size */
-      margin-top: -100px; /* Adds a negative top margin */
+    font-size: 2.5rem;
   }
 
   .hero-container > p {
-      font-size: 30px; /* Sets the font size */
+    font-size: 1rem;
   }
 
-  .btn-mobile {
-      display: block; /* Displays the element as a block */
-      text-decoration: none; /* Removes text decoration */
+  .hero-btns {
+    flex-direction: column;
+    gap: 1rem;
   }
 
   .btn {
-      width: 100%; /* Sets the width to 100% of the parent element */
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
