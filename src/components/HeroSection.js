@@ -30,7 +30,7 @@ function HeroSection() {
           className='btns'
           buttonStyle='btn--outline'
           buttonSize='btn--large'
-          onClick={() => handleButtonClick('ADDitude')}
+          to='/additude'
         >
           ADDitude
         </Button>

@@ -12,7 +12,8 @@ export const Button = ({
     type, // Button type (e.g., 'button', 'submit')
     onClick, // onClick event handler
     buttonStyle, // Style of the button
-    buttonSize // Size of the button
+    buttonSize, // Size of the button
+    to // New prop for navigation path
 }) => { 
     // Check if the provided buttonStyle is valid, if not, use the default style
     const checkButtonStyle = STYLES.includes(buttonStyle) ? buttonStyle : STYLES[0];
@@ -21,7 +22,7 @@ export const Button = ({
 
     return (
         // Link component for navigation to the sign-up page
-        <Link to='/sign-up' className='btn-mobile'>
+        <Link to={to} className='btn-mobile'> {/* Use the 'to' prop for the Link */}
             <button
                 className={`btn ${checkButtonStyle} ${checkButtonSize}`} // Applying the button styles and sizes
                 onClick={onClick} // Setting the onClick event handler
