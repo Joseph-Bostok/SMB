@@ -12,7 +12,6 @@ function HeroSection() {
 
   return (
     <div className='hero-container'> {/* Main container for the hero section */}
-      <video src='/videos/video-1.mp4' autoPlay loop muted /> {/* Background video */}
       <h1>Welcome</h1> {/* Hero section heading */}
       <p>Please select a news source to get started</p> {/* Hero section subheading */}
       <div className='hero-btns'> {/* Container for the buttons */}
