@@ -3,16 +3,16 @@
   max-width: max-content;
   margin: 0 auto;
   padding: 20px;
-  text-align: left;
-  background-color: #f4f4f4; /* Light grey background */
+  text-align: center;
+  background-color: #2c3e50; /* Dark slate background */
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Home button styling */
 .home-button {
-  background-color: #3498db; /* Blue background */
-  color: #fff; /* White text */
+  background-color: #34495e; /* Darker slate blue background */
+  color: #ecf0f1; /* Light grey text */
   border: none;
   border-radius: 8px;
   padding: 10px 20px;
@@ -23,7 +23,7 @@
 }
 
 .home-button:hover {
-  background-color: #2980b9; /* Darker blue on hover */
+  background-color: #2c3e50; /* Slightly darker on hover */
   transform: translateY(-2px);
 }
 
@@ -31,7 +31,7 @@
 h1 {
   font-size: 2rem;
   margin-bottom: 2rem;
-  color: #333; /* Dark grey headers */
+  color: #ecf0f1; /* Light grey headers */
 }
 
 /* Article list styling */
@@ -42,8 +42,8 @@ h1 {
 
 /* Article box styling */
 .article-box {
-  background-color: #fff; /* White boxes */
-  border: 1px solid #ddd; /* Light grey border */
+  background-color: #34495e; /* Darker slate blue boxes */
+  border: 1px solid #2c3e50; /* Dark slate border */
   border-radius: 8px;
   padding: 20px;
   margin-bottom: 20px;
@@ -54,18 +54,24 @@ h1 {
 
 .article-box h2 {
   font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #3498db; /* Blue text */
+  margin-bottom: 0.5rem;
+  color: #ecf0f1; /* Light grey text */
+}
+
+.article-box .article-author {
+  font-size: 1rem;
+  color: #95a5a6; /* Grey text */
+  margin-bottom: 0.5rem;
 }
 
 .article-box p {
   font-size: 1rem;
-  color: #555; /* Dark grey text */
+  color: #ecf0f1; /* Light grey text */
 }
 
 .article-box a {
   text-decoration: none;
-  color: #3498db; /* Blue links */
+  color: #1abc9c; /* Soft teal links */
 }
 
 .article-box a:hover {
@@ -90,7 +96,7 @@ h1 {
 }
 
 .modal-content {
-  background: #fff; /* White background */
+  background: #34495e; /* Darker slate blue background */
   padding: 20px;
   border-radius: 8px;
   text-align: center;
@@ -113,32 +119,32 @@ h1 {
 }
 
 .modal-content button:nth-child(1) {
-  background-color: #3498db; /* Blue button */
-  color: #fff; /* White text */
+  background-color: #1abc9c; /* Soft teal button */
+  color: #ecf0f1; /* Light grey text */
 }
 
 .modal-content button:nth-child(1):hover {
-  background-color: #2980b9; /* Darker blue on hover */
+  background-color: #16a085; /* Slightly darker teal on hover */
 }
 
 .modal-content button:nth-child(2) {
-  background-color: #ddd; /* Light grey button */
-  color: #333; /* Dark grey text */
+  background-color: #95a5a6; /* Grey button */
+  color: #ecf0f1; /* Light grey text */
 }
 
 .modal-content button:nth-child(2):hover {
-  background-color: #ccc; /* Darker grey on hover */
+  background-color: #7f8c8d; /* Slightly darker grey on hover */
 }
 
 /* Blog post styling */
 .blog-post {
-  background-color: #fff; /* White background */
-  border: 1px solid #ddd; /* Light grey border */
+  background-color: #34495e; /* Darker slate blue boxes */
+  border: 1px solid #2c3e50; /* Dark slate border */
   border-radius: 8px;
   padding: 20px;
   margin-top: 20px;
   text-align: left;
-  color: #555; /* Dark grey text */
+  color: #ecf0f1; /* Light grey text */
 }
 
 .fade-in {

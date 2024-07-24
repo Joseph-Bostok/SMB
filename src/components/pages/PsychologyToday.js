@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
-import './ADDitude.css'; // Import the CSS file
+import './PsychologyToday.css'; // Import the CSS file
 
-const ADDitude = () => {
+const PsychologyToday = () => {
   const [articles, setArticles] = useState([]); // State to hold fetched articles
   const [error, setError] = useState(null); // State to hold any errors
   const [selectedArticle, setSelectedArticle] = useState(null); // State to hold the selected article
@@ -12,9 +12,12 @@ const ADDitude = () => {
   const navigate = useNavigate(); // Initialize useNavigate for navigation
 
   useEffect(() => {
+    // Fetch articles from the API when the component mounts
     const fetchArticles = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/additude');
+        console.log('Fetching articles...');
+        const response = await axios.get('http://localhost:5000/api/psychology-today');
+        console.log('Articles fetched:', response.data);
         setArticles(response.data);
       } catch (error) {
         console.error('Error fetching articles', error);
@@ -32,6 +35,7 @@ const ADDitude = () => {
 
   // Handle article click to open the modal
   const handleArticleClick = (article) => {
+    console.log('Article clicked:', article);
     setSelectedArticle(article);
   };
 
@@ -45,11 +49,13 @@ const ADDitude = () => {
   const createBlogPost = async () => {
     setLoading(true);
     try {
+      console.log('Creating blog post...');
       const response = await axios.post('http://localhost:5000/api/create-blog-post', {
         title: selectedArticle.title,
         link: selectedArticle.link,
         excerpt: selectedArticle.excerpt
       });
+      console.log('Blog post created:', response.data);
       setBlogPost(response.data.blogPost);
     } catch (error) {
       console.error('Error creating blog post', error);
@@ -67,13 +73,14 @@ const ADDitude = () => {
   return (
     <div className="container">
       <button className="home-button fade-in" onClick={handleHomeClick}>Home</button>
-      <h1>ADDitude Articles</h1>
+      <h1>Psychology Today Articles</h1>
       <ul className="articles-list fade-in">
         {articles.map((article, index) => (
           <li key={index} className="article-box fade-in" onClick={() => handleArticleClick(article)}>
             <h2>
               <a href={article.link} target="_blank" rel="noopener noreferrer">{article.title}</a>
             </h2>
+            <p className="article-date">{article.date}</p>
             <p>{article.excerpt}</p>
           </li>
         ))}
@@ -103,4 +110,4 @@ const ADDitude = () => {
   );
 };
 
-export default ADDitude;
+export default PsychologyToday;

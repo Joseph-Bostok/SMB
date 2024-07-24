@@ -38,8 +38,7 @@ function HeroSection() {
           className='btns'
           buttonStyle='btn--outline'
           buttonSize='btn--large'
-          onClick={() => handleButtonClick('Psychology Today')}
-        >
+          to ='/PsychologyToday'        >
           Psychology Today
         </Button>
         {/* Button for NPR */}

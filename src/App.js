@@ -4,6 +4,7 @@ import NavBar from './components/navBar';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ADDitude from './components/pages/ADDitude';
 import Home from './components/pages/home'; 
+import PsychologyToday from './components/pages/PsychologyToday';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path='/' exact element={<Home />} /> {/* Updated Route */}
           <Route path='/additude' element={<ADDitude />} /> {/* ADDitude Route */}
+          <Route path='/PsychologyToday' element={<PsychologyToday />} /> {/* PsychToday Route */}
         </Routes>
       </Router>
     </>
