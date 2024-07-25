@@ -12,8 +12,15 @@ function HeroSection() {
 
   return (
     <div className='hero-container'> {/* Main container for the hero section */}
-      <h1>Welcome</h1> {/* Hero section heading */}
-      <p>Please select a news source to get started</p> {/* Hero section subheading */}
+      <div className='hero-header'>
+        <div className='hero-profile'></div> {/* Placeholder for profile image */}
+        <div>
+          <h1>Hello.</h1> {/* Greeting */}
+        </div>
+      </div>
+      <div className='hero-message'>
+        <p>Please select a news source to get started:</p>
+      </div>
       <div className='hero-btns'> {/* Container for the buttons */}
         {/* Button for Associated Press */}
         <Button
@@ -38,7 +45,8 @@ function HeroSection() {
           className='btns'
           buttonStyle='btn--outline'
           buttonSize='btn--large'
-          to ='/PsychologyToday'        >
+          to='/PsychologyToday'
+        >
           Psychology Today
         </Button>
         {/* Button for NPR */}

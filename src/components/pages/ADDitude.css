@@ -1,18 +1,16 @@
 /* Container styling */
 .container {
-  max-width: max-content;
+  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  text-align: left;
-  background-color: #f4f4f4; /* Light grey background */
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  background-color: #f5f5dc; /* Nice tan/beige background */
 }
 
 /* Home button styling */
 .home-button {
-  background-color: #3498db; /* Blue background */
-  color: #fff; /* White text */
+  background-color: #007BFF;
+  color: #fff;
   border: none;
   border-radius: 8px;
   padding: 10px 20px;
@@ -20,10 +18,12 @@
   cursor: pointer;
   margin-bottom: 20px;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  opacity: 0; /* Start with hidden button */
+  animation: fadeIn 1s forwards; /* Apply fade-in animation */
 }
 
 .home-button:hover {
-  background-color: #2980b9; /* Darker blue on hover */
+  background-color: #0056b3;
   transform: translateY(-2px);
 }
 
@@ -31,7 +31,7 @@
 h1 {
   font-size: 2rem;
   margin-bottom: 2rem;
-  color: #333; /* Dark grey headers */
+  color: #2e8b57; /* Seafoam green headers */
 }
 
 /* Article list styling */
@@ -42,30 +42,31 @@ h1 {
 
 /* Article box styling */
 .article-box {
-  background-color: #fff; /* White boxes */
-  border: 1px solid #ddd; /* Light grey border */
+  background-color: #add8e6; /* Light blue boxes */
+  border: 1px solid #ddd;
   border-radius: 8px;
   padding: 20px;
   margin-bottom: 20px;
-  text-align: left;
   transition: box-shadow 0.3s ease;
   cursor: pointer;
+  opacity: 0; /* Start with hidden article boxes */
+  animation: fadeIn 1s forwards; /* Apply fade-in animation */
 }
 
 .article-box h2 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  color: #3498db; /* Blue text */
+  color: #000; /* Black text */
 }
 
 .article-box p {
   font-size: 1rem;
-  color: #555; /* Dark grey text */
+  color: #000; /* Black text */
 }
 
 .article-box a {
   text-decoration: none;
-  color: #3498db; /* Blue links */
+  color: #007BFF;
 }
 
 .article-box a:hover {
@@ -90,14 +91,13 @@ h1 {
 }
 
 .modal-content {
-  background: #fff; /* White background */
+  background: #007BFF;
   padding: 20px;
   border-radius: 8px;
   text-align: center;
-  max-width: 500px;
-  width: 100%;
 }
 
+/* Modal buttons styling */
 .modal-content button {
   margin: 10px;
   padding: 10px 20px;
@@ -106,6 +106,8 @@ h1 {
   border: none;
   border-radius: 8px;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  opacity: 0; /* Start with hidden buttons */
+  animation: fadeIn 1s forwards; /* Apply fade-in animation */
 }
 
 .modal-content button:hover {
@@ -113,42 +115,38 @@ h1 {
 }
 
 .modal-content button:nth-child(1) {
-  background-color: #3498db; /* Blue button */
-  color: #fff; /* White text */
+  background-color: #007BFF;
+  color: #fff;
 }
 
 .modal-content button:nth-child(1):hover {
-  background-color: #2980b9; /* Darker blue on hover */
+  background-color: #0056b3;
 }
 
 .modal-content button:nth-child(2) {
-  background-color: #ddd; /* Light grey button */
-  color: #333; /* Dark grey text */
+  background-color: #ccc;
 }
 
 .modal-content button:nth-child(2):hover {
-  background-color: #ccc; /* Darker grey on hover */
+  background-color: #999;
 }
 
 /* Blog post styling */
 .blog-post {
-  background-color: #fff; /* White background */
-  border: 1px solid #ddd; /* Light grey border */
+  background-color: #add8e6; /* Light blue boxes */
+  border: 1px solid #ddd;
   border-radius: 8px;
   padding: 20px;
   margin-top: 20px;
   text-align: left;
-  color: #555; /* Dark grey text */
+  color: #000; /* Black text */
 }
 
-.fade-in {
-  animation: fadeIn 1s forwards; /* Apply fade-in animation */
-}
-
+/* Fade-in animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px); /* Add a slight slide-up effect */
+    transform: translateY(20px); /*add a slight slide-up effect */
   }
   to {
     opacity: 1;
