@@ -1,0 +1,156 @@
+/* Container styling */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #f5f5dc; /* Nice tan/beige background */
+  }
+  
+  /* Home button styling */
+  .home-button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    opacity: 0; /* Start with hidden button */
+    animation: fadeIn 1s forwards; /* Apply fade-in animation */
+  }
+  
+  .home-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+  }
+  
+  /* Heading styling */
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #2e8b57; /* Seafoam green headers */
+  }
+  
+  /* Article list styling */
+  .articles-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  /* Article box styling */
+  .article-box {
+    background-color: #add8e6; /* Light blue boxes */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: box-shadow 0.3s ease;
+    cursor: pointer;
+    opacity: 0; /* Start with hidden article boxes */
+    animation: fadeIn 1s forwards; /* Apply fade-in animation */
+  }
+  
+  .article-box h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #000; /* Black text */
+  }
+  
+  .article-box p {
+    font-size: 1rem;
+    color: #000; /* Black text */
+  }
+  
+  .article-box a {
+    text-decoration: none;
+    color: #007BFF;
+  }
+  
+  .article-box a:hover {
+    text-decoration: underline;
+  }
+  
+  .article-box:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Modal styling */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background: #007BFF;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  /* Modal buttons styling */
+  .modal-content button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    opacity: 0; /* Start with hidden buttons */
+    animation: fadeIn 1s forwards; /* Apply fade-in animation */
+  }
+  
+  .modal-content button:hover {
+    transform: translateY(-2px);
+  }
+  
+  .modal-content button:nth-child(1) {
+    background-color: #007BFF;
+    color: #fff;
+  }
+  
+  .modal-content button:nth-child(1):hover {
+    background-color: #0056b3;
+  }
+  
+  .modal-content button:nth-child(2) {
+    background-color: #ccc;
+  }
+  
+  .modal-content button:nth-child(2):hover {
+    background-color: #999;
+  }
+  
+  /* Blog post styling */
+  .blog-post {
+    background-color: #add8e6; /* Light blue boxes */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: left;
+    color: #000; /* Black text */
+  }
+  
+  /* Fade-in animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px); /*add a slight slide-up effect */
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
