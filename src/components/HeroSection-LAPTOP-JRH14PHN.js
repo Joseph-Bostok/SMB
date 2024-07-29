@@ -12,20 +12,12 @@ function HeroSection() {
 
   return (
     <div className='hero-container'> {/* Main container for the hero section */}
-      <div className='hero-profile'></div> {/* Placeholder for profile image */}
-      <div className='hero-header'>
-        <div>
-          <h1>Hello.</h1> {/* Greeting */}
-          <h2>let us help you find the right news.</h2> {/* Message */}
-        </div>
-      </div>
-      <div className='hero-message'>
-        <p>Start here.</p>
-      </div>
+      <h1>Welcome</h1> {/* Hero section heading */}
+      <p>Please select a news source to get started</p> {/* Hero section subheading */}
       <div className='hero-btns'> {/* Container for the buttons */}
         {/* Button for Associated Press */}
         <Button
-          className='btn'
+          className='btns'
           buttonStyle='btn--outline'
           buttonSize='btn--large'
           onClick={() => handleButtonClick('Associated Press')}
@@ -34,7 +26,7 @@ function HeroSection() {
         </Button>
         {/* Button for ADDitude */}
         <Button
-          className='btn'
+          className='btns'
           buttonStyle='btn--outline'
           buttonSize='btn--large'
           to='/additude'
@@ -43,16 +35,15 @@ function HeroSection() {
         </Button>
         {/* Button for Psychology Today */}
         <Button
-          className='btn'
+          className='btns'
           buttonStyle='btn--outline'
           buttonSize='btn--large'
-          to='/PsychologyToday'
-        >
+          to ='/PsychologyToday'        >
           Psychology Today
         </Button>
         {/* Button for NPR */}
         <Button
-          className='btn'
+          className='btns'
           buttonStyle='btn--outline'
           buttonSize='btn--large'
           onClick={() => handleButtonClick('NPR')}
@@ -61,7 +52,7 @@ function HeroSection() {
         </Button>
         {/* Button for Women's Mental Health */}
         <Button
-          className='btn'
+          className='btns'
           buttonStyle='btn--outline'
           buttonSize='btn--large'
           onClick={() => handleButtonClick('Womens Mental Health')}

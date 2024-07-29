@@ -1,45 +1,50 @@
+body {
+  background-color: #dfe7fd; /* New background color for the body */
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif; /* Set a default font */
+}
+
 .hero-container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   height: 100vh;
   padding: 2rem;
   text-align: center;
   background-color: #e6eefc; /* Light blue background color */
-  max-width: 100000px; /* Maximum width for the container */
+  max-width: 800px; /* Maximum width for the container */
   margin: auto; /* Center the container */
   box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Add a subtle shadow for better visibility */
   border-radius: 10px; /* Rounded corners */
   position: relative; /* Allow absolute positioning of the profile circle */
 }
 
-.hero-header {
-  display: left;
-  align-items: center;
-  justify-content: center; /* Center align items */
-  width: 100%;
-  margin-top: 40px; /* Shift the header up */
-}
-
 .hero-profile {
   position: absolute;
   top: 20px;
-  left: 10px;
-  width: 50px;
-  height: 50px;
+  left: 20px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
-  background-color: #d1c4e9; /* Light purple placeholder color */
+  background-color: #a0c1f7; /* Complementary color for profile circle */
+  border: 3px solid #333; /* Dark border to complement the background */
+}
+
+.hero-header {
+  margin-top: 0;
+  padding-top: 50px; /* Adjust for profile circle */
 }
 
 .hero-container h1 {
-  font-size: 1.5rem;
+  font-size: 2rem; /* Larger text */
   margin: 0;
   color: #333; /* Dark text color */
 }
 
 .hero-container h2 {
-  font-size: 1rem;
+  font-size: 1.25rem; /* Larger subheader */
   margin: 0;
   color: #666; /* Slightly lighter text color */
 }
@@ -49,34 +54,36 @@
 }
 
 .hero-message p {
-  font-size: 1.25rem;
+  font-size: 1.5rem; /* Larger text */
   color: #333; /* Dark text color */
 }
 
 .hero-btns {
   width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap; /* Allow wrapping */
+  justify-content: center;
+  gap: 1rem; /* Add space between buttons */
 }
 
 .btn {
-  width: 100%; /* Adjusted width for better appearance */
-  padding: 1rem;
-  font-size: 1rem;
-  border: 2px solid #00008b; /* Border color to match text */
-  border-radius: 1.3rem;
+  flex: 1 1 calc(50% - 1rem); /* Make buttons take up half the container width minus gap */
+  padding: 1.5rem;
+  font-size: 1.25rem;
+  border: 2px solid #000000; /* Black border color */
+  border-radius: 0.5rem;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.5s ease;
   text-align: center;
-  background: transparent; /* No background */
-  color: #00008b; /* Dark blue text color */
-  text-shadow: 1px 1px 2px #00000036; /* Black bordering */
+  background: #f0f0f0; /* Light gray background for shadow effect */
+  color: #000000; /* Black text color */
+  text-shadow: none; /* Remove text shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add slight shadow to the button */
   margin-bottom: 1rem;
 }
 
 .btn:hover {
-  background-color: #f1f1f1; /* Light background on hover */
+  background-color: #dcdcdc; /* Slightly darker background on hover */
   transform: translateY(-3px);
 }
 
@@ -87,67 +94,30 @@
   }
 
   .hero-header {
-    flex-direction: column;
-    align-items: center;
-    margin-top: 0; /* Reset margin for smaller screens */
+    margin-top: 0;
+    padding-top: 20px; /* Adjust for profile circle */
   }
 
   .hero-profile {
-    position: static;
-    margin-bottom: 1rem;
+    width: 50px;
+    height: 50px;
   }
 
   .hero-container h1 {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
 
   .hero-container h2 {
-    font-size: 0.875rem;
-  }
-
-  .hero-message p {
     font-size: 1rem;
   }
 
-  .btn {
-    font-size: 0.875rem;
-    padding: 0.75rem;
-    width: 100%; /* Ensure buttons are full width on small screens */
+  .hero-message p {
+    font-size: 1.25rem;
   }
 
-  /* Styles for devices with width up to 960px */
-@media screen and (max-width: 960px) {
-  .hero-container {
+  .btn {
+    font-size: 1rem;
     padding: 1rem;
+    flex: 1 1 100%; /* Make buttons full width on small screens */
   }
-
-  .hero-header {
-    flex-direction: column;
-    align-items: center;
-    margin-top: 0; /* Reset margin for smaller screens */
-  }
-
-  .hero-profile {
-    position: static;
-    margin-bottom: 1rem;
-  }
-
-  .hero-container h1 {
-    font-size: 1.25rem;
-  }
-
-  .hero-container h2 {
-    font-size: 0.875rem;
-  }
-
-  .hero-message p {
-    font-size: 1rem;
-  }
-
-  .btn {
-    font-size: 0.875rem;
-    padding: 0.75rem;
-    width: 100%; /* Ensure buttons are full width on small screens */
-  }
-}
 }
