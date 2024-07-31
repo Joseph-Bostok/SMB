@@ -1,37 +1,37 @@
 /* Container styling */
 .container {
-  max-width: max-content;
+  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  text-align: left;
-  background-color: #f4f4f4; /* Light grey background */
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  background-color: #e0e0e0; /* Slightly darker tan/beige background */
 }
 
 /* Home button styling */
 .home-button {
-  background-color: #3498db; /* Blue background */
-  color: #fff; /* White text */
+  background-color: #28a745; /* Different button color */
+  color: #fff;
   border: none;
   border-radius: 8px;
   padding: 10px 20px;
   font-size: 1rem;
   cursor: pointer;
   margin-bottom: 20px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease; /* Added opacity transition */
+  opacity: 0; /* Start with hidden button */
+  animation: fadeIn 1s forwards 0.5s; /* Apply fade-in animation with delay */
 }
 
 .home-button:hover {
-  background-color: #2980b9; /* Darker blue on hover */
+  background-color: #218838;
   transform: translateY(-2px);
 }
 
 /* Heading styling */
 h1 {
-  font-size: 2rem;
+  font-size: 2.5rem; /* Larger font size */
   margin-bottom: 2rem;
-  color: #333; /* Dark grey headers */
+  color: #3c8d0d; /* Different header color */
 }
 
 /* Article list styling */
@@ -42,30 +42,31 @@ h1 {
 
 /* Article box styling */
 .article-box {
-  background-color: #fff; /* White boxes */
-  border: 1px solid #ddd; /* Light grey border */
+  background-color: #87ceeb; /* Different light blue color */
+  border: 1px solid #ccc;
   border-radius: 8px;
   padding: 20px;
   margin-bottom: 20px;
-  text-align: left;
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, opacity 0.3s ease; /* Added opacity transition */
   cursor: pointer;
+  opacity: 0; /* Start with hidden article boxes */
+  animation: fadeIn 1s forwards 0.5s; /* Apply fade-in animation with delay */
 }
 
 .article-box h2 {
-  font-size: 1.5rem;
+  font-size: 1.75rem; /* Larger font size */
   margin-bottom: 1rem;
-  color: #3498db; /* Blue text */
+  color: #2c3e50; /* Darker text color */
 }
 
 .article-box p {
   font-size: 1rem;
-  color: #555; /* Dark grey text */
+  color: #2c3e50; /* Darker text color */
 }
 
 .article-box a {
   text-decoration: none;
-  color: #3498db; /* Blue links */
+  color: #28a745; /* Different link color */
 }
 
 .article-box a:hover {
@@ -73,7 +74,7 @@ h1 {
 }
 
 .article-box:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Modal styling */
@@ -90,14 +91,13 @@ h1 {
 }
 
 .modal-content {
-  background: #fff; /* White background */
+  background: #28a745; /* Different modal background color */
   padding: 20px;
   border-radius: 8px;
   text-align: center;
-  max-width: 500px;
-  width: 100%;
 }
 
+/* Modal buttons styling */
 .modal-content button {
   margin: 10px;
   padding: 10px 20px;
@@ -105,7 +105,9 @@ h1 {
   cursor: pointer;
   border: none;
   border-radius: 8px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease; /* Added opacity transition */
+  opacity: 0; /* Start with hidden buttons */
+  animation: fadeIn 1s forwards 0.5s; /* Apply fade-in animation with delay */
 }
 
 .modal-content button:hover {
@@ -113,38 +115,34 @@ h1 {
 }
 
 .modal-content button:nth-child(1) {
-  background-color: #3498db; /* Blue button */
-  color: #fff; /* White text */
+  background-color: #28a745;
+  color: #fff;
 }
 
 .modal-content button:nth-child(1):hover {
-  background-color: #2980b9; /* Darker blue on hover */
+  background-color: #218838;
 }
 
 .modal-content button:nth-child(2) {
-  background-color: #ddd; /* Light grey button */
-  color: #333; /* Dark grey text */
+  background-color: #ccc;
 }
 
 .modal-content button:nth-child(2):hover {
-  background-color: #ccc; /* Darker grey on hover */
+  background-color: #999;
 }
 
 /* Blog post styling */
 .blog-post {
-  background-color: #fff; /* White background */
-  border: 1px solid #ddd; /* Light grey border */
+  background-color: #87ceeb; /* Different light blue color */
+  border: 1px solid #ccc;
   border-radius: 8px;
   padding: 20px;
   margin-top: 20px;
   text-align: left;
-  color: #555; /* Dark grey text */
+  color: #2c3e50; /* Darker text color */
 }
 
-.fade-in {
-  animation: fadeIn 1s forwards; /* Apply fade-in animation */
-}
-
+/* Fade-in animation */
 @keyframes fadeIn {
   from {
     opacity: 0;

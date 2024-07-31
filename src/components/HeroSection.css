@@ -1,8 +1,11 @@
+/* HeroSection.css */
+
 body {
-  background-color: #dfe7fd; /* New background color for the body */
+  background-color: #2c3e50; /* Dark background color for the body */
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif; /* Set a default font */
+  font-family: 'Roboto', sans-serif; /* Use a more modern font */
+  
 }
 
 .hero-container {
@@ -13,11 +16,11 @@ body {
   height: 100vh;
   padding: 2rem;
   text-align: center;
-  background-color: #e6eefc; /* Light blue background color */
-  max-width: 800px; /* Maximum width for the container */
+  background-color: #34495e; /* Darker background color */
+  max-width: 700px; /* Slightly narrower container for modern look */
   margin: auto; /* Center the container */
-  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Add a subtle shadow for better visibility */
-  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Softer shadow */
+  border-radius: 15px; /* More pronounced rounded corners */
   position: relative; /* Allow absolute positioning of the profile circle */
 }
 
@@ -25,37 +28,37 @@ body {
   position: absolute;
   top: 20px;
   left: 20px;
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  background-color: #a0c1f7; /* Complementary color for profile circle */
-  border: 3px solid #333; /* Dark border to complement the background */
+  background-color: #16a085; /* Complementary color for profile circle */
+  border: 3px solid #fff; /* White border for better contrast */
 }
 
 .hero-header {
   margin-top: 0;
-  padding-top: 50px; /* Adjust for profile circle */
+  padding-top: 60px; /* Adjust for profile circle */
 }
 
-.hero-container h1 {
-  font-size: 2rem; /* Larger text */
-  margin: 0;
-  color: #333; /* Dark text color */
+.hero-header h1 {
+  font-size: 2.5rem; /* Larger text */
+  margin: 0 0 15px 0; /* Add bottom margin for spacing */
+  color: #ecf0f1; /* Light text color */
 }
 
-.hero-container h2 {
-  font-size: 1.25rem; /* Larger subheader */
+.hero-header h2 {
+  font-size: 1.5rem; /* Larger subheader */
   margin: 0;
-  color: #666; /* Slightly lighter text color */
+  color: #bdc3c7; /* Slightly lighter text color */
 }
 
 .hero-message {
-  margin: 1rem 0; /* Reduce margin to shift up */
+  margin: 1.5rem 0; /* Increase margin for better spacing */
 }
 
 .hero-message p {
   font-size: 1.5rem; /* Larger text */
-  color: #333; /* Dark text color */
+  color: #ecf0f1; /* Light text color */
 }
 
 .hero-btns {
@@ -68,23 +71,23 @@ body {
 
 .btn {
   flex: 1 1 calc(50% - 1rem); /* Make buttons take up half the container width minus gap */
-  padding: 1.5rem;
+  padding: 1rem 1.5rem; /* Adjust padding for better look */
   font-size: 1.25rem;
-  border: 2px solid #000000; /* Black border color */
+  border: 2px solid transparent; /* Remove border for a cleaner look */
   border-radius: 0.5rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.5s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
   text-align: center;
-  background: #f0f0f0; /* Light gray background for shadow effect */
-  color: #000000; /* Black text color */
-  text-shadow: none; /* Remove text shadow */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add slight shadow to the button */
+  background: #16a085; /* Modern complementary color for buttons */
+  color: #fff; /* White text color */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   margin-bottom: 1rem;
 }
 
 .btn:hover {
-  background-color: #dcdcdc; /* Slightly darker background on hover */
+  background-color: #149174; /* Slightly darker color on hover */
   transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
 }
 
 /* Media query for responsive design */
@@ -95,20 +98,22 @@ body {
 
   .hero-header {
     margin-top: 0;
-    padding-top: 20px; /* Adjust for profile circle */
+    padding-top: 30px; /* Adjust for profile circle */
   }
 
   .hero-profile {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
   }
 
-  .hero-container h1 {
-    font-size: 1.5rem;
+  .hero-header h1 {
+    font-size: 1.75rem;
+    margin-bottom: 15px;
   }
 
-  .hero-container h2 {
-    font-size: 1rem;
+  .hero-header h2 {
+    font-size: 1.25rem;
+    margin-top: 15px;
   }
 
   .hero-message p {
@@ -117,7 +122,7 @@ body {
 
   .btn {
     font-size: 1rem;
-    padding: 1rem;
+    padding: 0.75rem;
     flex: 1 1 100%; /* Make buttons full width on small screens */
   }
 }
