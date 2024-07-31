@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
-import './PsychologyToday.css'; // Import the CSS file
+import { useNavigate } from 'react-router-dom';
+import './PsychologyToday.css';
 
 const PsychologyToday = () => {
-  const [articles, setArticles] = useState([]); // State to hold fetched articles
-  const [error, setError] = useState(null); // State to hold any errors
-  const [selectedArticle, setSelectedArticle] = useState(null); // State to hold the selected article
-  const [loading, setLoading] = useState(false); // State to indicate loading status
-  const [blogPost, setBlogPost] = useState(''); // State to hold the generated blog post
-  const navigate = useNavigate(); // Initialize useNavigate for navigation
+  const [articles, setArticles] = useState([]);
+  const [error, setError] = useState(null);
+  const [selectedArticle, setSelectedArticle] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [blogPost, setBlogPost] = useState('');
+  const [editableContent, setEditableContent] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch articles from the API when the component mounts
     const fetchArticles = async () => {
       try {
         console.log('Fetching articles...');
@@ -28,24 +28,21 @@ const PsychologyToday = () => {
     fetchArticles();
   }, []);
 
-  // Navigate to the home page
   const handleHomeClick = () => {
     navigate('/');
   };
 
-  // Handle article click to open the modal
   const handleArticleClick = (article) => {
     console.log('Article clicked:', article);
     setSelectedArticle(article);
   };
 
-  // Close the modal
   const closeModal = () => {
     setSelectedArticle(null);
     setBlogPost('');
+    setEditableContent('');
   };
 
-  // Create a blog post using ChatGPT
   const createBlogPost = async () => {
     setLoading(true);
     try {
@@ -57,6 +54,7 @@ const PsychologyToday = () => {
       });
       console.log('Blog post created:', response.data);
       setBlogPost(response.data.blogPost);
+      setEditableContent(response.data.blogPost);
     } catch (error) {
       console.error('Error creating blog post', error);
       setError(error);
@@ -65,7 +63,11 @@ const PsychologyToday = () => {
     }
   };
 
-  // Render error message if there's an error
+  const handleSaveChanges = () => {
+    setBlogPost(editableContent);
+    alert('Changes saved!');
+  };
+
   if (error) {
     return <div>Error fetching articles: {error.message}</div>;
   }
@@ -100,10 +102,19 @@ const PsychologyToday = () => {
       )}
 
       {blogPost && (
-        <div className="blog-post fade-in">
-          <h2>Generated Blog Post</h2>
-          <p>{blogPost}</p>
-          <button onClick={closeModal}>Close</button>
+        <div className="modal">
+          <div className="modal-content fade-in">
+            <h2>Generated Blog Post</h2>
+            <textarea
+              value={editableContent}
+              onChange={(e) => setEditableContent(e.target.value)}
+              rows="10"
+              cols="50"
+              style={{ width: '100%', height: '200px' }}
+            />
+            <button onClick={handleSaveChanges}>Save Changes</button>
+            <button onClick={closeModal}>Close</button>
+          </div>
         </div>
       )}
     </div>

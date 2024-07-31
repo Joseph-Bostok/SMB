@@ -20,7 +20,7 @@ function HeroSection() {
         </div>
       </div>
       <div className='hero-message'>
-        <p>Start here.</p>
+        <p>Please select a news source to get started:</p>
       </div>
       <div className='hero-btns'> {/* Container for the buttons */}
         {/* Button for Associated Press */}
@@ -50,7 +50,7 @@ function HeroSection() {
         >
           Psychology Today
         </Button>
-        {/* Button for NPR */}
+        {/* Button for NPR
         <Button
           className='btn'
           buttonStyle='btn--outline'
@@ -58,7 +58,7 @@ function HeroSection() {
           onClick={() => handleButtonClick('NPR')}
         >
           NPR
-        </Button>
+        </Button> */}
         {/* Button for Women's Mental Health */}
         <Button
           className='btn'
