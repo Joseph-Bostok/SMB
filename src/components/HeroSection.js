@@ -27,7 +27,7 @@ function HeroSection() {
           className='btns'
           buttonStyle='btn--outline'
           buttonSize='btn--large'
-          to= '/associatedpress'
+          onClick={() => handleButtonClick('Associated Press')}
         >
           Associated Press
         </Button>

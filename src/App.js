@@ -5,8 +5,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ADDitude from './components/pages/ADDitude';
 import Home from './components/pages/home'; 
 import PsychologyToday from './components/pages/PsychologyToday';
-import AssociatedPress from './components/pages/AssociatedPress';
-
 
 function App() {
   return (
@@ -16,7 +14,6 @@ function App() {
           <Route path='/' exact element={<Home />} /> {/* Updated Route */}
           <Route path='/additude' element={<ADDitude />} /> {/* ADDitude Route */}
           <Route path='/PsychologyToday' element={<PsychologyToday />} /> {/* PsychToday Route */}
-          <Route path="/associatedpress" element={<AssociatedPress />} /> {/* Associated Route */}
         </Routes>
       </Router>
     </>

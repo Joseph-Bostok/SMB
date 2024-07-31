@@ -104,34 +104,4 @@ app.get('/api/psychology-today', async (req, res) => {
   }
 });
 
-app.get('/api/associatedpress', async (req, res) => {
-  try {
-    const response = await axios.get('https://apnews.com/hub/be-well');
-    const html = response.data;
-    const $ = cheerio.load(html);
-    const articles = [];
-
-    $('.TwoColumnContainer7030 .PageList-items .PageList-items-item').each((i, element) => {
-      if (i < 5) {
-        const title = $(element).find('.PagePromoContentIcons-text').text().trim();
-        const link = $(element).find('a').attr('href');
-        const excerpt = $(element).find('.PagePromoContentIcons-text').text().trim(); // Adjust this line as per actual HTML structure
-        const fullLink = link.startsWith('http') ? link : `https://apnews.com${link}`;
-
-        articles.push({
-          title,
-          link: fullLink,
-          excerpt
-        });
-      }
-    });
-
-    res.json(articles);
-  } catch (error) {
-    console.error('Error fetching articles:', error);
-    res.status(500).json({ error: 'Error fetching articles' });
-  }
-});
-
-
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
