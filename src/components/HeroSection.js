@@ -4,28 +4,19 @@ import LoadingBar from 'react-top-loading-bar';
 import '../App.css';
 import './HeroSection.css';
 
-/**
- * Renders a HeroSection component that fetches articles from an API, allows the user to sort them,
- * and displays them in a list. It also allows the user to create a blog post based on a selected article.
- *
- * @return {JSX.Element} The rendered HeroSection component.
- */
 function HeroSection() {
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState(null);
   const [selectedArticle, setSelectedArticle] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loadingBlog, setLoadingBlog] = useState(false);
+  const [loadingSocial, setLoadingSocial] = useState(false);
   const [blogPost, setBlogPost] = useState('');
+  const [socialMediaPost, setSocialMediaPost] = useState('');
   const [editableContent, setEditableContent] = useState('');
   const [sortCriteria, setSortCriteria] = useState('title');
   const loadingBarRef = useRef(null);
 
   useEffect(() => {
-    /**
-     * Fetches articles from multiple sources and sets the combined articles state.
-     *
-     * @return {Promise<void>} - A promise that resolves when the articles are fetched and set.
-     */
     const fetchArticles = async () => {
       loadingBarRef.current.continuousStart(); // Start the loading bar
       try {
@@ -46,12 +37,6 @@ function HeroSection() {
     fetchArticles();
   }, []);
 
-    /**
-     * Updates the sort criteria based on the selected value from the sort dropdown.
-     *
-     * @param {Event} e - The event object representing the change in the sort dropdown.
-     * @return {void} This function does not return anything.
-     */
   const handleSortChange = (e) => {
     setSortCriteria(e.target.value);
   };
@@ -74,19 +59,13 @@ function HeroSection() {
   const closeModal = () => {
     setSelectedArticle(null);
     setBlogPost('');
+    setSocialMediaPost('');
     setEditableContent('');
   };
 
-  /**
-   * Asynchronously creates a blog post using the selected article's title, link, and excerpt.
-   * Sets the blog post and editable content state based on the response data.
-   * Logs and sets an error if the request fails.
-   * Sets the loading state to false after the request is complete.
-   *
-   * @return {Promise<void>} Promise that resolves when the blog post is created and state is updated
-   */
   const createBlogPost = async () => {
-    setLoading(true);
+    setLoadingBlog(true);
+    setLoadingSocial(false);
     try {
       const response = await axios.post('http://localhost:5000/api/create-blog-post', {
         title: selectedArticle.title,
@@ -99,13 +78,46 @@ function HeroSection() {
       console.error('Error creating blog post', error);
       setError(error);
     } finally {
-      setLoading(false);
+      setLoadingBlog(false);
+    }
+  };
+
+  const createSocialMediaPost = async () => {
+    setLoadingSocial(true);
+    setLoadingBlog(false);
+    try {
+      const response = await axios.post('http://localhost:5000/api/create-social-media-post', {
+        title: selectedArticle.title,
+        link: selectedArticle.link,
+        excerpt: selectedArticle.excerpt
+      });
+      setSocialMediaPost(response.data.socialMediaPost);
+      setEditableContent(response.data.socialMediaPost);
+    } catch (error) {
+      console.error('Error creating social media post', error);
+      setError(error);
+    } finally {
+      setLoadingSocial(false);
     }
   };
 
   const handleSaveChanges = () => {
-    setBlogPost(editableContent);
+    if (blogPost) {
+      setBlogPost(editableContent);
+    } else if (socialMediaPost) {
+      setSocialMediaPost(editableContent);
+    }
     alert('Changes saved!');
+  };
+
+  const downloadContent = (content, filename) => {
+    const element = document.createElement('a');
+    const file = new Blob([content], { type: 'text/plain' });
+    element.href = URL.createObjectURL(file);
+    element.download = filename;
+    document.body.appendChild(element); // Required for this to work in FireFox
+    element.click();
+    document.body.removeChild(element);
   };
 
   return (
@@ -146,12 +158,15 @@ function HeroSection() {
       {selectedArticle && (
         <div className='modal'>
           <div className='modal-content'>
-            <h2>Create Blog Post</h2>
-            <p>Would you like ChatGPT to create a blog post about "{selectedArticle.title}"?</p>
-            <button onClick={createBlogPost} disabled={loading}>
-              {loading ? 'Creating...' : 'Yes'}
+            <h2>Create Post</h2>
+            <p>Would you like ChatGPT to create a post about "{selectedArticle.title}"?</p>
+            <button onClick={createBlogPost} disabled={loadingBlog || loadingSocial}>
+              {loadingBlog ? 'Creating Blog Post...' : 'Blog Post'}
             </button>
-            <button onClick={closeModal}>No</button>
+            <button onClick={createSocialMediaPost} disabled={loadingBlog || loadingSocial}>
+              {loadingSocial ? 'Creating Social Media Post...' : 'Social Media Post'}
+            </button>
+            <button onClick={closeModal}>Cancel</button>
           </div>
         </div>
       )}
@@ -167,6 +182,30 @@ function HeroSection() {
               style={{ width: '100%', height: '200px' }}
             />
             <button onClick={handleSaveChanges}>Save Changes</button>
+            <button onClick={() => downloadContent(blogPost, 'blogPost.txt')}>Download</button>
+            <a href="https://www.squarespace.com" target="_blank" rel="noopener noreferrer">
+              <button>Link to Squarespace</button>
+            </a>
+            <button onClick={closeModal}>Close</button>
+          </div>
+        </div>
+      )}
+
+      {socialMediaPost && (
+        <div className='modal'>
+          <div className='modal-content'>
+            <h2>Generated Social Media Post</h2>
+            <textarea
+              value={editableContent}
+              onChange={(e) => setEditableContent(e.target.value)}
+              rows='10'
+              style={{ width: '100%', height: '200px' }}
+            />
+            <button onClick={handleSaveChanges}>Save Changes</button>
+            <button onClick={() => downloadContent(socialMediaPost, 'socialMediaPost.txt')}>Download</button>
+            <a href="https://www.squarespace.com" target="_blank" rel="noopener noreferrer">
+              <button>Link to Squarespace</button>
+            </a>
             <button onClick={closeModal}>Close</button>
           </div>
         </div>

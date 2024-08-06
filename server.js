@@ -148,6 +148,7 @@ app.post('/api/create-blog-post', async (req, res) => {
     try to include some evidence based results from the link.
     include numbers and statistics in the post. (if possible)
     try to add some simple community support at the end and ask for thoughtful interactions.
+    do not first person pronouns. dont sound like a robot! 
   `;
 
   try {
@@ -180,5 +181,56 @@ app.post('/api/create-blog-post', async (req, res) => {
     }
   }
 });
+
+// Create an Instagram/Facebook post using ChatGPT
+app.post('/api/create-social-media-post', async (req, res) => {
+  const { title, link, excerpt } = req.body;
+
+  const prompt = `
+    Title: ${title}
+    Link: ${link}
+    Excerpt: ${excerpt}
+
+    Create an Instagram/Facebook style social media post based on the information provided.
+    Make it engaging, concise, and include relevant hashtags. The post should be under 200 words.
+    Do not use emojis or other special characters. Mention key points from the link. dont sound like a robot! 
+  `;
+
+  try {
+    const response = await axios.post('https://api.openai.com/v1/chat/completions', {
+      model: 'gpt-4-0613',
+      messages: [{ role: 'system', content: 'You are a helpful assistant.' }, { role: 'user', content: prompt }],
+      max_tokens: 300
+    }, {
+      headers: {
+        'Authorization': `Bearer ${OPENAI_API_KEY}`,
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (response.data && response.data.choices && response.data.choices.length > 0) {
+      const socialMediaPost = response.data.choices[0].message.content.trim();
+      res.json({ socialMediaPost });
+    } else {
+      console.error('Invalid response structure:', response.data);
+      res.status(500).json({ message: 'Invalid response from OpenAI' });
+    }
+  } catch (error) {
+    console.error('Error creating social media post:', error.message);
+    if (error.response) {
+      console.error('Response data:', error.response.data);
+      console.error('Response status:', error.response.status);
+      console.error('Response headers:', error.response.headers);
+      res.status(error.response.status).json({ message: error.response.data });
+    } else if (error.request) {
+      console.error('Request data:', error.request);
+      res.status(500).json({ message: 'No response received from OpenAI' });
+    } else {
+      console.error('Error message:', error.message);
+      res.status(500).json({ message: 'Error creating social media post' });
+    }
+  }
+});
+
 
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
