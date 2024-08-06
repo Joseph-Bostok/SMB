@@ -147,7 +147,16 @@ function HeroSection() {
       <ul className='articles-list'>
         {sortedArticles.map((article, index) => (
           <li key={index} className='article-box' onClick={() => handleArticleClick(article)}>
-            <h2>{article.title}</h2>
+            <h2>
+              <a
+                href={article.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {article.title}
+              </a>
+            </h2>
             <p className='article-source'>Source: {article.source}</p>
             <p className='article-date'>{article.date}</p>
             <p>{article.excerpt}</p>
@@ -175,6 +184,7 @@ function HeroSection() {
         <div className='modal'>
           <div className='modal-content'>
             <h2>Generated Blog Post</h2>
+            <p style={{ textAlign: 'left' }}>This content can be edited:</p>
             <textarea
               value={editableContent}
               onChange={(e) => setEditableContent(e.target.value)}
@@ -195,6 +205,7 @@ function HeroSection() {
         <div className='modal'>
           <div className='modal-content'>
             <h2>Generated Social Media Post</h2>
+            <p style={{ textAlign: 'left' }}>This content can be edited:</p>
             <textarea
               value={editableContent}
               onChange={(e) => setEditableContent(e.target.value)}
