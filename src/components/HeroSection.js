@@ -16,11 +16,13 @@ function HeroSection() {
   const [sortCriteria, setSortCriteria] = useState('title');
   const loadingBarRef = useRef(null);
 
+  // Fetch articles from various sources when the component mounts
   useEffect(() => {
     const fetchArticles = async () => {
       loadingBarRef.current.continuousStart(); // Start the loading bar
       try {
         const sources = ['associatedpress', 'additude', 'psychology-today'];
+        // Fetch articles from all sources
         const articlesFromSources = await Promise.all(
           sources.map(source => axios.get(`http://localhost:5000/api/${source}`))
         );
@@ -37,10 +39,12 @@ function HeroSection() {
     fetchArticles();
   }, []);
 
+  // Handle sort criteria change
   const handleSortChange = (e) => {
     setSortCriteria(e.target.value);
   };
 
+  // Sort articles based on the selected criteria
   const sortedArticles = articles.sort((a, b) => {
     if (sortCriteria === 'title') {
       return a.title.localeCompare(b.title);
@@ -52,10 +56,12 @@ function HeroSection() {
     return 0;
   });
 
+  // Handle article click to select it for post generation
   const handleArticleClick = (article) => {
     setSelectedArticle(article);
   };
 
+  // Close the modal and reset states
   const closeModal = () => {
     setSelectedArticle(null);
     setBlogPost('');
@@ -63,6 +69,7 @@ function HeroSection() {
     setEditableContent('');
   };
 
+  // Create a blog post by calling the API
   const createBlogPost = async () => {
     setLoadingBlog(true);
     setLoadingSocial(false);
@@ -82,6 +89,7 @@ function HeroSection() {
     }
   };
 
+  // Create a social media post by calling the API
   const createSocialMediaPost = async () => {
     setLoadingSocial(true);
     setLoadingBlog(false);
@@ -101,6 +109,7 @@ function HeroSection() {
     }
   };
 
+  // Save changes made to the editable content
   const handleSaveChanges = () => {
     if (blogPost) {
       setBlogPost(editableContent);
@@ -110,6 +119,7 @@ function HeroSection() {
     alert('Changes saved!');
   };
 
+  // Download the content as a text file
   const downloadContent = (content, filename) => {
     const element = document.createElement('a');
     const file = new Blob([content], { type: 'text/plain' });
@@ -152,7 +162,7 @@ function HeroSection() {
                 href={article.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
+                onClick={(e) => e.stopPropagation()} // Prevent the modal from opening when clicking the link
               >
                 {article.title}
               </a>
