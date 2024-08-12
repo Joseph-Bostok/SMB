@@ -14,7 +14,7 @@ const ADDitude = () => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/additude');
+        const response = await axios.get('http://testserver-env-2.eba-mrgeg24r.us-east-1.elasticbeanstalk.com/api/additude');
         setArticles(response.data);
       } catch (error) {
         console.error('Error fetching articles', error);
@@ -45,7 +45,7 @@ const ADDitude = () => {
   const createBlogPost = async () => {
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:5000/api/create-blog-post', {
+      const response = await axios.post('http://testserver-env-2.eba-mrgeg24r.us-east-1.elasticbeanstalk.com/api/create-blog-post', {
         title: selectedArticle.title,
         link: selectedArticle.link,
         excerpt: selectedArticle.excerpt

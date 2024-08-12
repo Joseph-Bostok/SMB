@@ -14,7 +14,7 @@ const AssociatedPress = () => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/associatedpress');
+        const response = await axios.get('http://testserver-env-2.eba-mrgeg24r.us-east-1.elasticbeanstalk.com/api/associatedpress');
         setArticles(response.data);
       } catch (error) {
         console.error('Error fetching articles', error);
@@ -41,7 +41,7 @@ const AssociatedPress = () => {
   const createBlogPost = async () => {
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:5000/api/create-blog-post', {
+      const response = await axios.post('http://testserver-env-2.eba-mrgeg24r.us-east-1.elasticbeanstalk.com/api/create-blog-post', {
         title: selectedArticle.title,
         link: selectedArticle.link,
         excerpt: selectedArticle.excerpt

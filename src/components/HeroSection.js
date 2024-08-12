@@ -24,7 +24,7 @@ function HeroSection() {
         const sources = ['associatedpress', 'additude', 'psychology-today'];
         // Fetch articles from all sources
         const articlesFromSources = await Promise.all(
-          sources.map(source => axios.get(`http://localhost:5000/api/${source}`))
+          sources.map(source => axios.get(`http://testserver-env-2.eba-mrgeg24r.us-east-1.elasticbeanstalk.com/api/${source}`))
         );
         const combinedArticles = articlesFromSources.flatMap(response => response.data);
         setArticles(combinedArticles);
@@ -74,7 +74,7 @@ function HeroSection() {
     setLoadingBlog(true);
     setLoadingSocial(false);
     try {
-      const response = await axios.post('http://localhost:5000/api/create-blog-post', {
+      const response = await axios.post('http://testserver-env-2.eba-mrgeg24r.us-east-1.elasticbeanstalk.com/api/create-blog-post', {
         title: selectedArticle.title,
         link: selectedArticle.link,
         excerpt: selectedArticle.excerpt
@@ -94,7 +94,7 @@ function HeroSection() {
     setLoadingSocial(true);
     setLoadingBlog(false);
     try {
-      const response = await axios.post('http://localhost:5000/api/create-social-media-post', {
+      const response = await axios.post('http://testserver-env-2.eba-mrgeg24r.us-east-1.elasticbeanstalk.com/api/create-social-media-post', {
         title: selectedArticle.title,
         link: selectedArticle.link,
         excerpt: selectedArticle.excerpt
